@@ -11,11 +11,7 @@ _None_
 ## Role Variables
 
 ```
-mssql_user: *required*
-```
-
-```
-mssql_password: *required*
+mssql_sa_password: *required*
 ```
 
 ## Dependencies
