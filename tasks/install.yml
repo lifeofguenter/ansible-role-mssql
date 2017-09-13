@@ -31,8 +31,11 @@
     state: latest
   with_items:
     - mssql-server
+    - mssql-server-agent
     - mssql-tools
     - unixodbc-dev
+  environment:
+    ACCEPT_EULA: Y
   become: yes
 
 - name: add to bin-path
