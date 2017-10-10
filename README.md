@@ -2,7 +2,7 @@
 
 # Ansible Role for SQL Server (2017)
 
-This ansible role will install SQL Server (2017) on Debian-like machines.
+This ansible role will install SQL Server (2017) on Ubuntu Xenial (unfortunately the only supported distribution/release currently).
 
 ## Requirements
 

@@ -10,14 +10,6 @@ galaxy_info:
     - name: Ubuntu
       versions:
         - xenial
-        - wily
-        - vivid
-        - utopic
-        - trusty
-    - name: Debian
-      versions:
-        - stretch
-        - jessie
   galaxy_tags:
     - system
     - sql
