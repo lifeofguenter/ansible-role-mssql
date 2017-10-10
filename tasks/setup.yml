@@ -8,3 +8,17 @@
     MSSQL_PID: "{{ mssql_pid }}"
   become: yes
   ignore_errors: yes
+
+- name: ufw allow rule
+  ufw:
+    rule: allow
+    name: mssql
+    port: 1433
+    proto: tcp
+    state: reloaded
+  become: yes
+
+- name: set memory.memorylimitmb
+  command: /opt/mssql/bin/mssql-conf set memory.memorylimitmb {{ mssql_memory_memorylimitmb }}
+  become: yes
+  notify: restart_mssql

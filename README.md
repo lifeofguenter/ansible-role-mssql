@@ -14,6 +14,10 @@ _None_
 mssql_sa_password: *required*
 ```
 
+```
+mssql_memory_memorylimitmb: "{{ (ansible_memtotal_mb * 0.8) | round | int }}"
+```
+
 ## Dependencies
 
 _None_

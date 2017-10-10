@@ -2,3 +2,5 @@
 
 # Must be evaluation, developer, express, web, standard, enterprise, or your 25 digit product key
 mssql_pid: developer
+
+mssql_memory_memorylimitmb: "{{ (ansible_memtotal_mb * 0.8) | round | int }}"
