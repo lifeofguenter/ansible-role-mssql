@@ -12,7 +12,6 @@
 - name: ufw allow rule
   ufw:
     rule: allow
-    name: mssql
     port: 1433
     proto: tcp
     state: reloaded
