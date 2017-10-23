@@ -1,0 +1,9 @@
+---
+
+- name: ufw allow rule
+  ufw:
+    rule: allow
+    port: 1433
+    proto: tcp
+    state: reloaded
+  become: yes

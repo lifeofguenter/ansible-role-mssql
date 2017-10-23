@@ -1,5 +1,13 @@
 ---
 
-- include: install.yml
+- include_tasks: install.yml
 
-- include: setup.yml
+- include_tasks: setup.yml
+
+- name: check if ufw is installed
+  command: dpkg -L ufw
+  register: dpkg_ufw_check
+  ignore_errors: yes
+
+- include_tasks: ufw.yml
+  when: dpkg_ufw_check.rc == 0
