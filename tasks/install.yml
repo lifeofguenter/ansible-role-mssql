@@ -31,7 +31,6 @@
     state: latest
   with_items:
     - mssql-server
-    - mssql-server-agent
     - mssql-tools
     - unixodbc-dev
   environment:
