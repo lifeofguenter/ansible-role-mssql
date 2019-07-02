@@ -3,7 +3,6 @@
 - name: check if setup is needed
   command: grep -Fq accepteula /var/opt/mssql/mssql.conf
   ignore_errors: yes
-  changed_when: no
   register: check_setup
   become: yes
 
