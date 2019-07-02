@@ -2,12 +2,11 @@
 
 - name: install prerequisites
   apt:
-    name: "{{ item }}"
+    name:
+      - apt-transport-https
     state: present
     update_cache: yes
     cache_valid_time: 3600
-  with_items:
-    - apt-transport-https
   become: yes
 
 - name: add apt-key
@@ -27,12 +26,11 @@
 
 - name: install mssql
   apt:
-    name: "{{ item }}"
+    name:
+      - mssql-server
+      - mssql-tools
+      - unixodbc-dev
     state: latest
-  with_items:
-    - mssql-server
-    - mssql-tools
-    - unixodbc-dev
   environment:
     ACCEPT_EULA: Y
   become: yes

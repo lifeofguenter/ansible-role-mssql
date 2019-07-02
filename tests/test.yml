@@ -2,5 +2,9 @@
 
 - hosts: localhost
   remote_user: root
+
+  vars:
+    mssql_sa_password: Foobar_2019
+
   roles:
     - ansible-role-mssql
