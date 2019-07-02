@@ -1,15 +1,21 @@
 ---
 
-# unfortunately there is no way (I know of) to be idempotent
+- name: check if setup is needed
+  command: grep -Fq accepteula /var/opt/mssql/mssql.conf
+  ignore_errors: yes
+  changed_when: no
+  register: check_setup
+
 - name: setup
   command: /opt/mssql/bin/mssql-conf -n setup accept-eula
   environment:
     MSSQL_SA_PASSWORD: "{{ mssql_sa_password }}"
     MSSQL_PID: "{{ mssql_pid }}"
   become: yes
-  ignore_errors: yes
+  notify: restart_mssql
+  when: check_setup is failed
 
+# for now these will not restart the server but has to be done manually as we can not check for changes
 - name: set memory.memorylimitmb
   command: /opt/mssql/bin/mssql-conf set memory.memorylimitmb {{ mssql_memory_memorylimitmb }}
   become: yes
-  notify: restart_mssql
