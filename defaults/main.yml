@@ -4,3 +4,5 @@
 mssql_pid: developer
 
 mssql_memory_memorylimitmb: "{{ (ansible_memtotal_mb * 0.8) | round | int }}"
+
+mssql_repo: "mssql-server-2017-gdr"

@@ -20,7 +20,7 @@
     repo: "{{ item }}"
     state: present
   with_items:
-    - deb [arch=amd64] https://packages.microsoft.com/ubuntu/16.04/mssql-server-2017 xenial main
+    - deb [arch=amd64] https://packages.microsoft.com/ubuntu/16.04/{{ mssql_repo }} xenial main
     - deb [arch=amd64] https://packages.microsoft.com/ubuntu/16.04/prod xenial main
   become: yes
 
