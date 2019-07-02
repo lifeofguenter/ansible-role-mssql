@@ -1,6 +1,6 @@
-[![Build Status](https://travis-ci.org/lifeofguenter/ansible-role-mssql.svg?branch=master)](https://travis-ci.org/lifeofguenter/ansible-role-mssql)
-
 # Ansible Role for SQL Server (2017)
+
+[![Build Status](https://travis-ci.org/lifeofguenter/ansible-role-mssql.svg?branch=master)](https://travis-ci.org/lifeofguenter/ansible-role-mssql)
 
 This ansible role will install SQL Server (2017) on Ubuntu Xenial (unfortunately the only supported distribution/release currently).
 

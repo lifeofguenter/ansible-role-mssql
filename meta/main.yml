@@ -5,7 +5,7 @@ galaxy_info:
   description: Installs SQL Server (2017).
   company: weheartwebsites UG
   license: MIT
-  min_ansible_version: 2.3
+  min_ansible_version: 2.8
   platforms:
     - name: Ubuntu
       versions:

@@ -6,8 +6,9 @@
 
 - name: check if ufw is installed
   command: dpkg -L ufw
-  register: dpkg_ufw_check
   ignore_errors: yes
+  changed_when: no
+  register: check_ufw
 
 - include_tasks: ufw.yml
-  when: dpkg_ufw_check.rc == 0
+  when: check_ufw is success
