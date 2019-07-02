@@ -5,6 +5,7 @@
   ignore_errors: yes
   changed_when: no
   register: check_setup
+  become: yes
 
 - name: setup
   command: /opt/mssql/bin/mssql-conf -n setup accept-eula
