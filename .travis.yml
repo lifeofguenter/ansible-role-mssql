@@ -1,37 +1,17 @@
----
+dist: xenial
 
 language: python
-python: "2.7"
+python: 3.7
 sudo: required
-dist: trusty
-
-# Install ansible
-addons:
-  apt:
-    packages:
-    - python-setuptools
 
 install:
-  - sudo -H easy_install pip
-  # http://urllib3.readthedocs.io/en/latest/user-guide.html#ssl-py2
-  - sudo -H pip install -U pyOpenSSL cryptography idna certifi
-  - sudo -H pip install -U urllib3
-  # https://github.com/ansible/ansible/issues/23642#issuecomment-297469043
-  - sudo -H pip install -U ndg-httpsclient
-
-  # Install ansible
-  - sudo -H pip install -U ansible
-
-  # Check ansible version
-  - ansible --version
-
-  # Create ansible.cfg with correct roles_path
+  - pip install ansible
   - printf '[defaults]\nroles_path=../' >ansible.cfg
 
 script:
-  - "ansible-playbook tests/test.yml -i tests/inventory --connection=local --syntax-check"
+  - "ansible-playbook tests/test.yml -i tests/inventory --connection=local"
 
-  - "ansible-playbook tests/test.yml -i tests/inventory --connection=local --syntax-check"
+  - "ansible-playbook tests/test.yml -i tests/inventory --connection=local"
 
 notifications:
   webhooks: https://galaxy.ansible.com/api/v1/notifications/
