@@ -1,0 +1,17 @@
+---
+
+- name: add filter
+  copy:
+    src: filter.conf
+    dest: /etc/fail2ban/filter.d/mssqld-auth.conf
+    mode: 0644
+  become: yes
+  notify: restart_fail2ban
+
+- name: add jail
+  copy:
+    src: jail.conf
+    dest: /etc/fail2ban/jail.d/mssql.conf
+    mode: 0644
+  become: yes
+  notify: restart_fail2ban
