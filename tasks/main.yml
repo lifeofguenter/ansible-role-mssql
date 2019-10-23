@@ -19,5 +19,5 @@
   changed_when: no
   register: check_fail2ban
 
-- import_tasks: fail2ban-jail.yml
+- import_tasks: fail2ban.yml
   when: check_fail2ban is success
