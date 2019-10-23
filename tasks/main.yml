@@ -12,3 +12,12 @@
 
 - include_tasks: ufw.yml
   when: check_ufw is success
+
+- name: check if fail2ban is installed
+  command: dpkg -L fail2ban
+  ignore_errors: yes
+  changed_when: no
+  register: check_fail2ban
+
+- import_tasks: fail2ban.yml
+  when: check_fail2ban is success
