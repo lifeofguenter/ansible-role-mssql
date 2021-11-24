@@ -2,7 +2,7 @@
 
 dist: focal
 
-language: python
+language: minimal
 sudo: required
 
 env:
