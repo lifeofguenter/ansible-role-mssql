@@ -1,8 +1,8 @@
 # Ansible Role for SQL Server (2017)
 
-[![Build Status](https://travis-ci.org/lifeofguenter/ansible-role-mssql.svg?branch=master)](https://travis-ci.org/lifeofguenter/ansible-role-mssql)
+[![Build Status](https://travis-ci.com/lifeofguenter/ansible-role-mssql.svg?branch=main)](https://travis-ci.com/lifeofguenter/ansible-role-mssql)
 
-This ansible role will install SQL Server (2017) on Ubuntu Xenial (unfortunately the only supported distribution/release currently).
+This ansible role will install SQL Server (2017 & 2019) on Debian-like systems.
 
 ## Requirements
 
@@ -36,4 +36,4 @@ MIT
 
 ## Author Information
 
-Gunter Grodotzki <gunter@grodotzki.co.za>
+Günter Grodotzki <gunter@grodotzki.com>

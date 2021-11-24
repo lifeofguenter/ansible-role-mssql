@@ -18,5 +18,9 @@
 
 # for now these will not restart the server but has to be done manually as we can not check for changes
 - name: set memory.memorylimitmb
-  command: /opt/mssql/bin/mssql-conf set memory.memorylimitmb {{ mssql_memory_memorylimitmb }}
+  command: /opt/mssql/bin/mssql-conf set {{ item }}
+  with_items:
+    - network.ipaddress {{ mssql_network_ipaddress }}
+    - memory.memorylimitmb {{ mssql_memory_memorylimitmb }}
+    - telemetry.customerfeedback false
   become: yes

@@ -1,8 +1,18 @@
 ---
 
-- include_tasks: install.yml
+- name: Load a variable file based on the OS type, or a default if not found. Using free-form to specify the file.
+  include_vars: "{{ lookup('first_found', params) }}"
+  vars:
+    params:
+      files:
+        - '{{ ansible_distribution | lower }}-{{ ansible_distribution_version }}.yml'
+        - default.yml
+      paths:
+        - vars
 
-- include_tasks: setup.yml
+- import_tasks: install.yml
+
+- import_tasks: setup.yml
 
 - name: check if ufw is installed
   command: dpkg -L ufw
@@ -10,7 +20,7 @@
   changed_when: no
   register: check_ufw
 
-- include_tasks: ufw.yml
+- import_tasks: ufw.yml
   when: check_ufw is success
 
 - name: check if fail2ban is installed

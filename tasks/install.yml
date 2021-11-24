@@ -4,6 +4,8 @@
   apt:
     name:
       - apt-transport-https
+      - ca-certificates
+      - gpg
     state: present
     update_cache: yes
     cache_valid_time: 3600
@@ -20,8 +22,8 @@
     repo: "{{ item }}"
     state: present
   with_items:
-    - deb [arch=amd64] https://packages.microsoft.com/ubuntu/16.04/{{ mssql_repo }} xenial main
-    - deb [arch=amd64] https://packages.microsoft.com/ubuntu/16.04/prod xenial main
+    - deb [arch=amd64] https://packages.microsoft.com/{{ mssql_use_distribution }}/{{ mssql_use_dist_version }}/mssql-server-{{ mssql_version }} {{ mssql_use_dist_name }} main
+    - deb [arch=amd64] https://packages.microsoft.com/{{ mssql_use_distribution }}/{{ mssql_use_dist_version }}/prod {{ mssql_use_dist_name }} main
   become: yes
 
 - name: install mssql

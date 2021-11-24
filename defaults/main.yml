@@ -1,8 +1,10 @@
 ---
 
-# Must be evaluation, developer, express, web, standard, enterprise, or your 25 digit product key
-mssql_pid: developer
+# Must be evaluation, Developer, Express, Web, Standard, Enterprise, or your 25 digit product key
+mssql_pid: Developer
 
-mssql_memory_memorylimitmb: "{{ (ansible_memtotal_mb * 0.8) | round | int }}"
+mssql_memory_memorylimitmb: "{{ (ansible_memtotal_mb * 0.5) | round | int }}"
 
-mssql_repo: "mssql-server-2017-gdr"
+mssql_network_ipaddress: 127.0.0.1
+
+mssql_version: 2019

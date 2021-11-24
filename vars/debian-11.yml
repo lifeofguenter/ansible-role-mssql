@@ -1,0 +1,5 @@
+---
+
+mssql_use_distribution: ubuntu
+mssql_use_dist_version: 20.04
+mssql_use_dist_name: focal
